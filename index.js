@@ -1,7 +1,7 @@
 import "./style.scss";
-import batmanImg from "../Assets/Images/Batman.jpg";
-import spiderman from "../Assets/Images/Spiderman.jpg";
-import wildWest from "../Assets/Images/WildWest.jpg";
+import batmanImg from "./Assets/Images/Batman.jpg";
+import spiderman from "./Assets/Images/Spiderman.jpg";
+import wildWest from "./Assets/Images/WildWest.jpg";
 
 // Sidebar
 const hamburger = document.getElementById("hamburger");
