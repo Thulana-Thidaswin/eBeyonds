@@ -1,47 +1,48 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
-  entry: './index.js',
+  mode: "development",
+  entry: "./index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
+    publicPath: "/eBeyonds/", // <-- add this line, replace with your actual repo name
   },
+
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.html$/,
-        use: 'html-loader'
+        use: "html-loader",
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource'
-      }
-    ]
+        type: "asset/resource",
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'index.html'
-    })
+      template: "./index.html",
+      filename: "index.html",
+    }),
   ],
   devServer: {
-    static: './dist',
+    static: "./dist",
     port: 3000,
     open: true,
-  }
-  
+  },
 };
